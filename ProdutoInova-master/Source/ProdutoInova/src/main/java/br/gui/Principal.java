@@ -5,6 +5,9 @@
  */
 package br.gui;
 
+@interface anotationTag1 {
+    String value();
+} 
 /**
  *
  * @author alexandrelerario
@@ -123,6 +126,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    
+@anotationTag1("Definição do plano de fundo dos botoes em vermelho")
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JCustomer;

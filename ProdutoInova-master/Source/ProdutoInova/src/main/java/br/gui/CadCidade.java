@@ -9,8 +9,13 @@ package br.gui;
  *
  * @author alexandrelerario
  */
+import java.lang.annotation.Annotation;
+@interface anotationTag {
+    String value();
+} 
 public class CadCidade extends javax.swing.JInternalFrame {
 
+    
     /**
      * Creates new form CadCidade
      */
@@ -131,7 +136,7 @@ public class CadCidade extends javax.swing.JInternalFrame {
         }
         jTextArea1.setText(lista);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+@anotationTag("Definição do plano de fundo dos botoes em vermelho")
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.data.entity;
 
+
+package br.data.entity;
+import java.lang.annotation.Annotation;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -15,6 +17,9 @@ import javax.persistenc e.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
+public @interface anotation {
+} 
 /**
  *
  * @author alexandrelerario
