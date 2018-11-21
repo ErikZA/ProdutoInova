@@ -18,7 +18,8 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-public @interface anotation {
+@interface anotationTag { 
+    String value();
 } 
 /**
  *
