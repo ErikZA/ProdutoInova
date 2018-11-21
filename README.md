@@ -8,4 +8,9 @@ ____________________________________________________
 
 Requisito:
  cli3: deseja que o fundo de todos os botoes do aplicativo seja vermelho;
- @Pendente
+ @Pendente 14/11/2018
+ 
+____________________________________________________ 
+ Melhora do documento 21/11/2018 @Concluido
+ 
+ Alterado por Erik.
