@@ -8,7 +8,7 @@ Alterado por Erik
 ____________________________________________________
 
 Requisito:
- cli3: deseja que o fundo de todos os botoes do aplicativo seja vermelho;  @Pendente
+ cli3: deseja que o fundo de todos os botoes do aplicativo seja vermelho;  @Pendente 14/11/2018
  =====
 ____________________________________________________ 
 
