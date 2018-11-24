@@ -109,7 +109,7 @@ public class Principal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-         customerName = "                       === Cliente nao identificado ===                    ";
+         customerName = "                       === Cliente 01 ===                    ";
         if (args.length > 0) {
             customerName = "                                       ======" + args[0] + " ===========";
         }

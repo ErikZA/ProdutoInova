@@ -5,10 +5,19 @@
  */
 package br.gui;
 
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author alexandrelerario
  */
+
+@interface anotationTagCorrecaoDeBugCampoCodigo{
+
+    String value();
+}
+
 public class CadCidade extends javax.swing.JInternalFrame {
 
     /**
@@ -18,6 +27,19 @@ public class CadCidade extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+     @anotationTagCorrecaoDeBugCampoCodigo("Função para validar o campo do codigo")
+    public void ValidaNumero(JTextField Numero) {
+        long valor;
+        if (Numero.getText().length() != 0) {
+            try {
+                valor = Long.parseLong(Numero.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                Numero.grabFocus();
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,15 +132,28 @@ public class CadCidade extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ @anotationTagCorrecaoDeBugCampoCodigo("Função para validar o campo do codigo")
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        br.data.entity.Cidade cid= new br.data.entity.Cidade();
+       int check = 0;
+        br.data.entity.Cidade cid = new br.data.entity.Cidade();
         int cod = Integer.parseInt(txtCod.getText());
+        String lista = "";
+        for (br.data.entity.Cidade cidade : new br.data.crud.CrudCidade().getAll()) {
+            if(cidade.getCodigo() == cod){
+            check = 1;
+            }
+        } 
+        if(check == 1){
+            JOptionPane.showMessageDialog(null, "Ja existe uma cidade Cadastrada com esse codigo","", JOptionPane.INFORMATION_MESSAGE);
+            txtCod.grabFocus();
+        } else {
+        txtNome.getText();
         String nome = txtNome.getText();
         cid.setCodigo(cod);
         cid.setNome(nome);
         new br.data.crud.CrudCidade().persist(cid);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
