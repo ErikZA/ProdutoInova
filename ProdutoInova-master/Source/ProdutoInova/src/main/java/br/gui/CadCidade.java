@@ -10,6 +10,8 @@ package br.gui;
  * @author alexandrelerario
  */
 import java.lang.annotation.Annotation;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 @interface anotationTag {
     String value();
 } 
@@ -22,6 +24,10 @@ public class CadCidade extends javax.swing.JInternalFrame {
     public CadCidade() {
         initComponents();
     }
+    @interface anotationTagCorrecaoDeBugCampoCodigo{
+
+    String value();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +56,12 @@ public class CadCidade extends javax.swing.JInternalFrame {
         jLabel1.setText("Codigo");
 
         jLabel2.setText("Nome");
+
+        txtCod.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCodFocusLost(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(204, 0, 0));
         jButton1.setText("Salvar novo");
@@ -118,14 +130,41 @@ public class CadCidade extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @anotationTagCorrecaoDeBugCampoCodigo("Função para validar o campo do codigo")
+    public void ValidaNumero(JTextField Numero) {
+        long valor;
+        if (Numero.getText().length() != 0) {
+            try {
+                valor = Long.parseLong(Numero.getText());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Esse Campo só aceita números", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                Numero.grabFocus();
+            }
+        }
+    }
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        br.data.entity.Cidade cid= new br.data.entity.Cidade();
+        int check = 0;
+        br.data.entity.Cidade cid = new br.data.entity.Cidade();
         int cod = Integer.parseInt(txtCod.getText());
+        String lista = "";
+        for (br.data.entity.Cidade cidade : new br.data.crud.CrudCidade().getAll()) {
+            if(cidade.getCodigo() == cod){
+            check = 1;
+            }
+        } 
+        if(check == 1){
+            JOptionPane.showMessageDialog(null, "Ja existe uma cidade Cadastrada com esse codigo","", JOptionPane.INFORMATION_MESSAGE);
+            txtCod.grabFocus();
+        } else {
+        txtNome.getText();
         String nome = txtNome.getText();
         cid.setCodigo(cod);
         cid.setNome(nome);
         new br.data.crud.CrudCidade().persist(cid);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -136,6 +175,11 @@ public class CadCidade extends javax.swing.JInternalFrame {
         }
         jTextArea1.setText(lista);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtCodFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodFocusLost
+        // TODO add your handling code here:
+        ValidaNumero(txtCod);
+    }//GEN-LAST:event_txtCodFocusLost
 @anotationTag("Definição do plano de fundo dos botoes em vermelho")
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
