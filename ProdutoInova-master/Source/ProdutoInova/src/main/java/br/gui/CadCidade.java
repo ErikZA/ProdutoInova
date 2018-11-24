@@ -68,6 +68,12 @@ public class CadCidade extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Nome");
 
+        txtCod.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCodFocusLost(evt);
+            }
+        });
+
         jButton1.setText("Salvar novo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +170,11 @@ public class CadCidade extends javax.swing.JInternalFrame {
         }
         jTextArea1.setText(lista);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtCodFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodFocusLost
+        // TODO add your handling code here:
+        ValidaNumero(txtCod);
+    }//GEN-LAST:event_txtCodFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
