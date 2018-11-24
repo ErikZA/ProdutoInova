@@ -18,4 +18,16 @@ ____________________________________________________
 Melhora do documento 21/11/2018 @Concluido
 ====== 
  >>>Alterado por Erik.
+___________________________________________________
 
+Correção de bugs - campo cod e persistencia. @Pendente 21/11/2018.
+Produto Original.
+=====
+
+Correção dos bugs
+
+Alterado por Erik
+
+Correção de bugs - campo cod e persistencia. @Feito 24/11/2018.
+======
+___________________________________________________
