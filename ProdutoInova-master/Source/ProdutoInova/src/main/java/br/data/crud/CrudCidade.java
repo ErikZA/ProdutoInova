@@ -29,6 +29,7 @@ public class CrudCidade extends AbstractCrud<Cidade> {
             em = Persistence.createEntityManagerFactory(PU).createEntityManager();
         }
         return em;
-    }
-
+    }  
+    
 }
+

@@ -4,7 +4,8 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.data.entity.Cidade</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:aula"/>
+        <!--@anotationTagPersistenciaUF("INCLUINDO O CAMPO UF NA PERSISTENCIA, ATENDENDO AO REQUISOTO 1")-->
+      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:persistenciauf"/>
       <property name="javax.persistence.jdbc.user" value="sa"/> 
       <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
       <property name="javax.persistence.jdbc.password" value=""/>

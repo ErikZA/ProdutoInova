@@ -49,7 +49,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jToolBar2.add(jButton1);
 
-        JCustomer.setText("                                     Cliente não identificado");
+        JCustomer.setText("                                     Cliente - 04");
         jToolBar2.add(JCustomer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,7 +109,7 @@ public class Principal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-         customerName = "                       === Cliente nao identificado ===                    ";
+         customerName = "                       === CLIENTE 04 ===                    ";
         if (args.length > 0) {
             customerName = "                                       ======" + args[0] + " ===========";
         }

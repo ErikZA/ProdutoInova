@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
-import javax.persistenc e.NamedQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -19,23 +19,35 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author alexandrelerario
  */
+
+@interface anotationTagPersistenciaUF {
+    String value();
+} 
+
 @Entity
 @Table(name = "cidade")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c")
     , @NamedQuery(name = "Cidade.findByCodigo", query = "SELECT c FROM Cidade c WHERE c.codigo = :codigo")
-    , @NamedQuery(name = "Cidade.findByNome", query = "SELECT c FROM Cidade c WHERE c.nome = :nome")})
+    , @NamedQuery(name = "Cidade.findByNome", query = "SELECT c FROM Cidade c WHERE c.nome = :nome")
+    , @NamedQuery(name = "Cidade.findByCodUF", query = "SELECT c FROM Cidade c WHERE c.coduf = :coduf")})
 public class Cidade implements Serializable {
 
+    @anotationTagPersistenciaUF("INCLUINDO O CAMPO UF NA PERSISTENCIA, ATENDENDO AO REQUISOTO 1")
+    
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "codigo")
+    @Column(name="codigo")
     private Integer codigo;
-    @Column(name = "nome")
+   
+    @Column(name="nome")
     private String nome;
-
+    
+    @Column(name="coduf")
+    private String coduf;
+    
     public Cidade() {
     }
 
@@ -58,6 +70,15 @@ public class Cidade implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public String getCodUF() {
+        return coduf;
+    }
+
+    public void setCodUF(String codUF) {
+        this.coduf = codUF;
+    }
+    
 
     @Override
     public int hashCode() {
